@@ -1,6 +1,27 @@
 
 // vars need for the game
 
+var randomResult = '';
+var wins = '';
+var losses = '';
+
+//will add more the vars as time goes on
+
+for (var i = 0; i < 4; i++) {
+    var random = Math.floor(Math.random() * 12)
+    console.log(random);
+
+     
+    var crystal = $("<div>");
+        crystal.attr({
+            "class": 'crystal ',
+            "data-random": random
+        });
+ 
+    $(".crystals").append(crystal);
+
+
+}
 
 
 // pseudo coding
