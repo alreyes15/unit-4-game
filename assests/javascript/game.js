@@ -7,9 +7,11 @@ var lost = 0;
 var back = 0;
 
 //will add more the vars as time goes on
+
 var startAndReset = function() {
 
     $(".crystals").empty();
+
     randomResult = Math.floor(Math.random() * 99) + 20;
  
 $("#result").html('My Number : ' + randomResult);
@@ -18,23 +20,22 @@ for (var i = 0; i < 4; i++) {
     
     var random = Math.floor(Math.random() * 11) + 1;
 
-
     var crystal = $("<div>");
         crystal.attr({
             "class": 'crystal',
             "data-random": random
         });
-
         crystal.html(random);
 
-$(".crystals").append(crystal);
+    $(".crystals").append(crystal);
 
 }
 }
 
 startAndReset();
 
-$(".crystal").on('click', function () {
+
+$(document).on('click', ".crystal", function () {
 
     var num = parseInt($(this).attr('data-random'));
 
@@ -44,19 +45,23 @@ $(".crystal").on('click', function () {
 
     if (back > randomResult){
 
-            lost--;
+        lost--;
             
-            $("#lost").html(win);
+            $("#lost").html(lost);
+
+            back = 0;
 
             startAndReset();
     }
     else if (back === randomResult) {
 
-            win++;
+       win++;
 
-            $("#win").html(win);
-           
-            startAndReset();
+        $("#win").html(win);
+
+        back = 0;
+
+        startAndReset();
     }
 
 });
