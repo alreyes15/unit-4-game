@@ -6,15 +6,18 @@ var wins = '';
 var losses = '';
 
 //will add more the vars as time goes on
+randomResult = Math.floor(Math.random() * 99) + 20;
+ 
+$("#result").html('My Number : ' + randomResult);
 
 for (var i = 0; i < 4; i++) {
-    var random = Math.floor(Math.random() * 12)
-    console.log(random);
+    
+    var random = Math.floor(Math.random() * 11) + 1;
+    // console.log(random);
 
-     
     var crystal = $("<div>");
         crystal.attr({
-            "class": 'crystal ',
+            "class": 'crystal',
             "data-random": random
         });
  
@@ -23,8 +26,13 @@ for (var i = 0; i < 4; i++) {
 
 }
 
+$(".crystal").on('click', function () {
 
-// pseudo coding
+        console.log($(this).attr('data-random'));
+
+});
+
+ // pseudo coding
 
 // What I know about the game: 
 // I know that theres 4 CRYSTALS (4 divs?) and must add to the random number each time
