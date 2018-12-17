@@ -2,33 +2,62 @@
 // vars need for the game
 
 var randomResult = '';
-var wins = '';
-var losses = '';
+var win = 0;
+var lost = 0;
+var back = 0;
 
 //will add more the vars as time goes on
-randomResult = Math.floor(Math.random() * 99) + 20;
+var startAndReset = function() {
+
+    $(".crystals").empty();
+    randomResult = Math.floor(Math.random() * 99) + 20;
  
 $("#result").html('My Number : ' + randomResult);
 
 for (var i = 0; i < 4; i++) {
     
     var random = Math.floor(Math.random() * 11) + 1;
-    // console.log(random);
+
 
     var crystal = $("<div>");
         crystal.attr({
             "class": 'crystal',
             "data-random": random
         });
- 
-    $(".crystals").append(crystal);
 
+        crystal.html(random);
+
+$(".crystals").append(crystal);
 
 }
+}
+
+startAndReset();
 
 $(".crystal").on('click', function () {
 
-        console.log($(this).attr('data-random'));
+    var num = parseInt($(this).attr('data-random'));
+
+    back += num;
+
+    console.log(back);
+
+    if (back > randomResult){
+
+            lost--;
+            
+            $("#lost").html(win);
+
+            startAndReset();
+    }
+    else if (back === randomResult) {
+
+            win++;
+
+            $("#win").html(win);
+           
+            startAndReset();
+    }
 
 });
 
