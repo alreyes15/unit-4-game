@@ -25,11 +25,11 @@ for (var i = 0; i < 4; i++) {
             "class": 'crystal',
             "data-random": random
         });
-        crystal.html(random);
 
     $(".crystals").append(crystal);
 
 }
+$("#back").html("Total Score: " + back);
 }
 
 startAndReset();
@@ -41,23 +41,25 @@ $(document).on('click', ".crystal", function () {
 
     back += num;
 
+    $("#back").html("Total Score: " + back);
+
     console.log(back);
 
     if (back > randomResult){
 
-        lost--;
+        lost++;
             
-            $("#lost").html(lost);
+        $("#lost").html("Hahaha You Lost this many:" + lost);
 
-            back = 0;
+        back = 0;
 
-            startAndReset();
+        startAndReset();
     }
     else if (back === randomResult) {
 
        win++;
 
-        $("#win").html(win);
+        $("#win").html("I guess you won this many:" + win);
 
         back = 0;
 
