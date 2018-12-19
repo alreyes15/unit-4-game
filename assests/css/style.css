@@ -1,4 +1,16 @@
 
+
+p {
+    text-align: center;
+    margin-top: 25px;
+    margin-bottom: 2rem;
+    padding-left: 85px;
+    font-family: 'Titillium Web', sans-serif;
+
+
+
+}
+
 .crystals{
     display: flex;
     justify-content: space-around;
@@ -7,19 +19,17 @@
 
 }
 .crystal {
-     border: 1px solid black;
+
+     border: 0.5px solid;
      height: 200px;
      width:  200px;
      border-radius: 4px;
-     box-shadow: 5px rgba(0, 0,0, 0.5);
+     box-shadow: 10px 10px 5px grey;
 
-     transition: box-shadow 1s, transform 2s;
-     transition: box-shadow 1s;
+     transition-property: width;
+    transition-duration: 2s;
+    transition-timing-function: linear;
+    transition-delay: 1s;
+
 }
 
-/* .crystal:hover {
-    box-shadow: 15px rgba(0, 0,0, 0.5);
-    transform: translate(5px, 80px);
-    cursor: pointer;
-    transition: box-shadow 1s, transform 2s;
-} */

@@ -12,6 +12,12 @@ var startAndReset = function() {
 
     $(".crystals").empty();
 
+    var images = [
+     'https://www.energymuse.com/crystal-test/img/crystaltest-rhodochrosite.jpg',
+     'https://www.energymuse.com/crystal-test/img/crystaltest-am-stone.jpg',
+     'https://www.energymuse.com/crystal-test/img/crystaltest-hematite.jpg',
+     'https://www.energymuse.com/crystal-test/img/crystaltest-apatite.jpg']
+
     randomResult = Math.floor(Math.random() * 99) + 20;
  
 $("#result").html('My Number : ' + randomResult);
@@ -25,7 +31,11 @@ for (var i = 0; i < 4; i++) {
             "class": 'crystal',
             "data-random": random
         });
+        crystal.css ({
+            "background-image":"url('" + images[i] + "')",
+            "background-size":"cover"
 
+        });
     $(".crystals").append(crystal);
 
 }
@@ -49,7 +59,7 @@ $(document).on('click', ".crystal", function () {
 
         lost++;
             
-        $("#lost").html("Hahaha You Lost this many:" + lost);
+        $("#lost").html("Hahaha You Lost this many: " + lost);
 
         back = 0;
 
@@ -59,7 +69,7 @@ $(document).on('click', ".crystal", function () {
 
        win++;
 
-        $("#win").html("I guess you won this many:" + win);
+        $("#win").html("I guess you won this many: " + win);
 
         back = 0;
 
